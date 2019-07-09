@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.ConsolePL", "Epam.UserAward.ConsolePL\Epam.UserAward.ConsolePL.csproj", "{6153401F-8A4A-4316-A722-A46DB3D18E49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.Entities", "Epam.UserAward.Entities\Epam.UserAward.Entities.csproj", "{2726ECA4-4389-4C6A-8586-6F1603D8C647}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.LogicContracts", "Epam.UserAward.LogicContracts\Epam.UserAward.LogicContracts.csproj", "{EF0FD23F-6F3D-4D5E-B03C-D0F1A72D8E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.Logic", "Epam.UserAward.Logic\Epam.UserAward.Logic.csproj", "{B91ADF75-BCD6-4D04-9DD5-33D5465BBEE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.DalContracts", "Epam.UserAward.DalContracts\Epam.UserAward.DalContracts.csproj", "{C1720C44-0E64-42D9-B152-5E0198705C40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.UserAward.MemoryDal", "Epam.UserAward.MemoryDal\Epam.UserAward.MemoryDal.csproj", "{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6153401F-8A4A-4316-A722-A46DB3D18E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6153401F-8A4A-4316-A722-A46DB3D18E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6153401F-8A4A-4316-A722-A46DB3D18E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6153401F-8A4A-4316-A722-A46DB3D18E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2726ECA4-4389-4C6A-8586-6F1603D8C647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2726ECA4-4389-4C6A-8586-6F1603D8C647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2726ECA4-4389-4C6A-8586-6F1603D8C647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2726ECA4-4389-4C6A-8586-6F1603D8C647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0FD23F-6F3D-4D5E-B03C-D0F1A72D8E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0FD23F-6F3D-4D5E-B03C-D0F1A72D8E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0FD23F-6F3D-4D5E-B03C-D0F1A72D8E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0FD23F-6F3D-4D5E-B03C-D0F1A72D8E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91ADF75-BCD6-4D04-9DD5-33D5465BBEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91ADF75-BCD6-4D04-9DD5-33D5465BBEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91ADF75-BCD6-4D04-9DD5-33D5465BBEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91ADF75-BCD6-4D04-9DD5-33D5465BBEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1720C44-0E64-42D9-B152-5E0198705C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1720C44-0E64-42D9-B152-5E0198705C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1720C44-0E64-42D9-B152-5E0198705C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1720C44-0E64-42D9-B152-5E0198705C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6A284EF-338B-4B8B-86A3-2EE0188D8FB0}
+	EndGlobalSection
+EndGlobal
