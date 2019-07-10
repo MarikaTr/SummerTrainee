@@ -69,19 +69,32 @@ namespace Epam.UserAward.ConsolePL
                     case 3: DeleteUser(); break;
                     case 4: AddAward(); break;
                     case 5: DeleteAward(); break;
-                    case 4: Environment.Exit(0); break;
+                    case 0: Environment.Exit(0); break;
                 }
             }
         }
 
         private static void DeleteAward()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter Award ID:");
+            bool isParseTrue = true;
+            int awardId = checkInput();
+            if (awardLogic.Delete(awarId))
+            {
+                Console.WriteLine("Delete successfull");
+            }
+            else { Console.WriteLine("Award can't be deleted"); }
         }
 
         private static void AddAward()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter Title:");
+            Award award = new Award { Title = awardTitle };
+            if (awardLogic.Save(award))
+            {
+                Console.WriteLine("Award was saved");
+            }
+            else { Console.WriteLine("Award can't be saved"); };
         }
 
         private static void DeleteUser()
@@ -105,6 +118,9 @@ namespace Epam.UserAward.ConsolePL
             DateTime.TryParse(Console.ReadLine(), out userdateOfBirth);
             Console.WriteLine("Enter age:");
             int userAge = checkInput();/*int.Parse(System.DateTime.Now.ToString())- int.Parse(userdateOfBirth.ToString());*/
+            Console.WriteLine("Does user have awards? y/n");
+            Console.ReadLine();
+            case
             User user = new User { Name = userName, DateOfBirth = userdateOfBirth, Age= userAge };
             if (userLogic.Save(user))
             {

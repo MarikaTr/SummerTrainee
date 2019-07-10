@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwardLogic.cs" />
+    <Compile Include="DaoProvider.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +63,10 @@
     <ProjectReference Include="..\Epam.UserAward.LogicContracts\Epam.UserAward.LogicContracts.csproj">
       <Project>{ef0fd23f-6f3d-4d5e-b03c-d0f1a72d8e7f}</Project>
       <Name>Epam.UserAward.LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Epam.UserAward.MemoryDal\Epam.UserAward.MemoryDal.csproj">
+      <Project>{96D5A0C4-26A6-4BAD-8210-C855F78CF4DF}</Project>
+      <Name>Epam.UserAward.MemoryDal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
