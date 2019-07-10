@@ -17,44 +17,83 @@ namespace Epam.UserAward.ConsolePL
         {
             userLogic = new UserLogic();
         }
+        static int mainMenu()
+        {
+            int n = 1;
+            bool isParseTrue = true;
+            do
+            {
+                if ((!isParseTrue) || (n < 0) || (n > 6))
+                {
+                    Console.WriteLine("Wrong input. Try again.");
+                }
+
+                Console.WriteLine("\n1. Add User");
+                Console.WriteLine("2. Show User");
+                Console.WriteLine("3. Delete User");
+                Console.WriteLine("4. Add Award");
+                Console.WriteLine("5. Show Award");
+                Console.WriteLine("6. Delete Award");
+                Console.WriteLine("0. Exit");
+                Console.WriteLine(DateTime.Now.ToString());
+                isParseTrue = int.TryParse(Console.ReadLine(), out n);
+                Console.Clear();
+            }
+            while (!isParseTrue || (n < 0) || (n > 6));
+            return n;
+        }
+        static int checkInput()
+        {
+            int n;
+            bool isParseTrue = true;
+            do
+            {
+                if (!isParseTrue)
+                {
+                    Console.WriteLine("Wrong input.Try again.");
+                }
+                isParseTrue = int.TryParse(Console.ReadLine(), out n);
+            }
+            while (!isParseTrue);
+            return n;
+        }
         static void Main(string[] args)
         {
             while (true)
             {
-                int n = 1;
-                bool isParseTrue = true;
-                do
-                {
-                    
-                    if ((!isParseTrue) || (n < 0) || (n > 3))
-                    {
-                        Console.WriteLine("Wrong input. Try again.");
-                    }
-                    
-                    Console.WriteLine("\n1. Add User");
-                    Console.WriteLine("2. Show User");
-                    Console.WriteLine("3. Delete User");
-                    Console.WriteLine("0. Exit");
-                    Console.WriteLine(DateTime.Now.ToString());
-                    isParseTrue = int.TryParse(Console.ReadLine(), out n);
-                    Console.Clear();
-                }
-                while (!isParseTrue || (n < 0) || (n > 3));
+                int n = mainMenu();
                 switch (n)
                 {
                     case 1: AddUser(); break;
                     case 2: ShowUser(); break;
                     case 3: DeleteUser(); break;
+                    case 4: AddAward(); break;
+                    case 5: DeleteAward(); break;
                     case 4: Environment.Exit(0); break;
                 }
             }
         }
 
+        private static void DeleteAward()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void AddAward()
+        {
+            throw new NotImplementedException();
+        }
+
         private static void DeleteUser()
         {
             Console.WriteLine("Enter User ID:");
-            int userId = int.Parse(Console.ReadLine());
-            userLogic.Delete(userId);
+            bool isParseTrue = true;
+            int userId = checkInput();
+            if (userLogic.Delete(userId))
+            {
+                Console.WriteLine("Delete successfull");
+            }
+            else { Console.WriteLine("User can't be deleted"); }
         }
 
         private static void AddUser()
@@ -65,8 +104,13 @@ namespace Epam.UserAward.ConsolePL
             DateTime userdateOfBirth = new DateTime();
             DateTime.TryParse(Console.ReadLine(), out userdateOfBirth);
             Console.WriteLine("Enter age:");
-            int.TryParse(Console.ReadLine(),out int userAge);/*int.Parse(System.DateTime.Now.ToString())- int.Parse(userdateOfBirth.ToString());*/
-            User user = userLogic.Save(userName, userdateOfBirth, userAge);
+            int userAge = checkInput();/*int.Parse(System.DateTime.Now.ToString())- int.Parse(userdateOfBirth.ToString());*/
+            User user = new User { Name = userName, DateOfBirth = userdateOfBirth, Age= userAge };
+            if (userLogic.Save(user))
+            {
+                Console.WriteLine("User was saved");
+            }
+            else { Console.WriteLine("User can't be saved"); };
         }
 
         private static void ShowUser()

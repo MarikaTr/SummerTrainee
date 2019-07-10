@@ -9,8 +9,8 @@ namespace Epam.UserAward.LogicContracts
 {
     public interface IUserLogic
     {
-        void Delete(int userId);
-        User Save(string userName, DateTime userdateOfBirth, int userAge);
+        bool Delete(int userId);
+        bool Save(User user);
         User[] GetAll();
         
     }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Epam.UserAward.FileDal;
 
 namespace Epam.UserAward.Logic
 {
@@ -14,22 +15,15 @@ namespace Epam.UserAward.Logic
 
     {
         private IUserDao userDao;
-
-        public void Delete(int userId)
+        public UserLogic()
         {
-             User[] users = GetAll();
-            for (int i = 0; i<users.Length; i++)
-            {
-                if(users[i].Id== userId)
-                {
-                    users[i] = users[i+1];
-                }
-            }
-            Console.WriteLine("deleting completed:");
-            foreach (var user in users)
-            {
-                Console.WriteLine($"{user.Id} {user.Name} {user.DateOfBirth} {user.Age}");
-            }
+           userDao = new FileUserDao();
+    }
+        
+
+        public bool Delete(int userId)
+        {
+            return userDao.Delete(userId);
         }
 
         public User[] GetAll()
@@ -37,16 +31,15 @@ namespace Epam.UserAward.Logic
             return userDao.GetAll().ToArray();
         }
 
-        public User Save(string userName, DateTime userdateOfBirth, int userAge)
+        public bool Save(User user)
         {
-            if (string.IsNullOrWhiteSpace(userName))
+            if (user == null)
             {
-                throw new ArgumentException("User name can't be null or whitespace", nameof(userName));
+                throw new ArgumentException("User can't be null", nameof(user));
             }
-            User user = new User { Name = userName, DateOfBirth = userdateOfBirth, Age= userAge};
             if (userDao.Save(user))
             {
-                return user;
+                return true;
             }
             throw new InvalidOperationException("Error on user saving");
         }

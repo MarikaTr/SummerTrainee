@@ -34,13 +34,13 @@ namespace Epam.UserAward.MemoryDal
             users.Add(user);
             return true;
         }
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var temp = users.FirstOrDefault(x => x.Id == id);
             if (temp == null)
             {
                 Console.WriteLine("Can't delete user. List is empty.");
-                return;
+                return false;
             }
             users.Remove(temp);
             Console.WriteLine("deleting completed:");
@@ -48,6 +48,7 @@ namespace Epam.UserAward.MemoryDal
             {
                 Console.WriteLine($"{user.Id} {user.Name} {user.DateOfBirth} {user.Age}");
             }
+            return true;
         }
     }
 }

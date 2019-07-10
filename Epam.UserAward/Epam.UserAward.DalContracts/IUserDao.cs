@@ -11,7 +11,7 @@ namespace Epam.UserAward.DalContracts
     {
         bool Save(User user);
         IEnumerable<User> GetAll();
-        User GetById(int id);
-        void Delete(int id);
+
+        bool Delete(int id);
     }
 }
