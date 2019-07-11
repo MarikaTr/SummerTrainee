@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Epam.UserAward.LogicContracts
-{
-    class IAwardLogic
     {
+        bool Save(string type);
+
+        Award GetById(int Id);
+
+        Award[] GetAll();
     }
-}
