@@ -30,8 +30,14 @@ namespace Epam.UserAward.FileDal
                         Id = int.Parse(temp[0]),
                         Name = temp[1],
                         DateOfBirth = DateTime.Parse(temp[2]),
-                        Age = int.Parse(temp[3])
+                      //  Age = int.Parse(temp[3]),
+                        Awards = new List<Award>()
                     });
+                    for (int i = 4; i<temp.Length;i += 2)
+                    {
+                        Users.Last().Awards.Add(new Award { Id = int.Parse(temp[i]) , Title = temp[i+1] });
+                    }
+                    
                 }
 
             }
@@ -51,7 +57,18 @@ namespace Epam.UserAward.FileDal
                 {
                     foreach (var item in Users)
                     {
-                        writer.WriteLine("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                        if (item.Awards == null)
+                        {
+                            writer.WriteLine("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                        }
+                        else
+                        {
+                            writer.Write("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                            foreach (var h in item.Awards)
+                            {
+                                writer.Write("|{0}|{1}", h.Id, h.Title);
+                            }
+                        }
                     }
                 }
                 return true;
@@ -75,11 +92,21 @@ namespace Epam.UserAward.FileDal
             Users.Add(user);
             using (StreamWriter writer = new StreamWriter(path))
             {
-                Console.WriteLine("jjjjj");
                 foreach (var item in Users)
                 {
-                    Console.WriteLine("nnknknkjnjnjknjknk");
-                    writer.WriteLine("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                    if (item.Awards == null)
+                    {
+                        writer.Write("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                    }
+                    else
+                    {
+                        writer.Write("{0}|{1}|{2}|{3}", item.Id, item.Name, item.DateOfBirth, item.Age);
+                        foreach (var h in item.Awards)
+                        {
+                            writer.Write("|{0}|{1}", h.Id, h.Title);
+                        }   
+                    }
+                    writer.WriteLine();
                 }
             }
             Console.WriteLine("Success");

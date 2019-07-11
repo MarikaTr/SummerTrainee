@@ -9,6 +9,7 @@ namespace Epam.UserAward.DalContracts
 {
     public interface IAwardDao
     {
+        Award GetById(int id);
         bool Save(Award award);
         IEnumerable<Award> GetAll();
         bool Delete(int id);

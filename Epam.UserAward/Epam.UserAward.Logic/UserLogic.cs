@@ -4,7 +4,6 @@ using Epam.UserAward.LogicContracts;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Epam.UserAward.FileDal;
@@ -17,8 +16,8 @@ namespace Epam.UserAward.Logic
         private IUserDao userDao;
         public UserLogic()
         {
-           userDao = new FileUserDao();
-    }
+            userDao = new FileUserDao();
+        }
         
 
         public bool Delete(int userId)

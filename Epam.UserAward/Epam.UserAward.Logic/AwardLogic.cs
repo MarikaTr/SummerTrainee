@@ -14,9 +14,38 @@ namespace Epam.UserAward.Logic
     public class AwardLogic : IAwardLogic
 
     {
-        private IAwardDao userDao;
+        private IAwardDao awardDao;
         public AwardLogic()
         {
-            userDao = new FileAwardDao();
+            awardDao = new FileAwardDao();
+        }
+
+        public Award[] GetAll()
+        {
+            return awardDao.GetAll().ToArray();
+        }
+
+        public Award GetById(int Id)
+        {
+            return awardDao.GetById(Id);
+        }
+
+        public bool Save(Award award)
+        {
+            if (award == null)
+            {
+                throw new ArgumentException("Award can't be null", nameof(award));
+            }
+            if (awardDao.Save(award))
+            {
+                return true;
+            }
+            throw new InvalidOperationException("Error on award saving");
+        }
+
+        bool IAwardLogic.Delete(int awardId)
+        {
+            return awardDao.Delete(awardId);
         }
     }
+}
